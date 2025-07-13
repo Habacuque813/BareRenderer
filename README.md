@@ -28,3 +28,9 @@ Esse projeto simula um sistema de renderização "na mão", onde cada pixel é m
 
 ```plaintext
 imagem.ppm
+```
+##Como compilar:
+
+```bash
+g++ src/*.cpp -o render
+./render 
