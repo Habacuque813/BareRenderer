@@ -1,0 +1,5 @@
+*.o
+*.ppm
+*.exe
+*.out
+*build/
