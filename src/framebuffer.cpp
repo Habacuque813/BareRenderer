@@ -25,20 +25,23 @@ void limparFramebuffer(const Color &cor) {
 void salvarComoPPM(const std::string &nomeArquivo) {
   std::ofstream arquivo(nomeArquivo);
   if (!arquivo) {
-    std::cerr << "Erro  ao abrir o arquivo para escrita.\n";
+    std::cerr << "Erro ao abrir o arquivo para escrita.\n";
     return;
   }
 
+  // Cabeçalho PPM (modo texto)
   arquivo << "P3\n";
-  arquivo << largura << "" << altura << "\n";
+  arquivo << largura << " " << altura << "\n";
   arquivo << "255\n";
 
+  // Pixels: um por linha ou agrupados
   for (int y = 0; y < altura; ++y) {
     for (int x = 0; x < largura; ++x) {
       const Color &cor = framebuffer[y * largura + x];
-      arquivo << (int)cor.r << "" << (int)cor.g << "" << (int)cor.b << "";
+      arquivo << (int)cor.r << " " << (int)cor.g << " " << (int)cor.b << " ";
     }
     arquivo << "\n";
   }
+
   arquivo.close();
 }
